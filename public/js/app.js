@@ -148,3 +148,6 @@ messageOne.textContent = 'From JavaScript'
         })
     })
 })
+
+// video 63
+console.log(hi)
