@@ -1,14 +1,14 @@
 //we are using src folder file 55.app.js
 
 //video 46
-console.log('Client side javascript file is loaded!')
+//console.log('Client side javascript file is loaded!')
 
 // video 57
-fetch('https://puzzle.mead.io/puzzle').then((response) => {
-    response.json().then((data) => {
-        console.log(data)
-    })
-})
+//fetch('https://puzzle.mead.io/puzzle').then((response) => {
+  //  response.json().then((data) => {
+    //    console.log(data)
+   // })
+//})
 
 // challenge 
 // goal fetch weather!
@@ -86,6 +86,7 @@ fetch('https://puzzle.mead.io/puzzle').then((response) => {
 // })
 
 // video 59 wiring up the user interface 
+
 // const weatherForm = document.querySelector('form')
 // const search = document.querySelector('input')
 // const messageOne = document.querySelector('#message-1')
@@ -119,6 +120,41 @@ fetch('https://puzzle.mead.io/puzzle').then((response) => {
 // 4. if no error, render location and forecast
 // 5. test your work! search for error and for valid location
 
+// const weatherForm = document.querySelector('form')
+// const search = document.querySelector('input')
+// const messageOne = document.querySelector('#message-1')
+// const messageTwo = document.querySelector('#message-2')
+
+// messageOne.textContent = 'From JavaScript'
+
+//  weatherForm.addEventListener('submit', (e) => { 
+//     e.preventDefault()
+//     // after the user submit the form will get the from here
+//     const location = search.value
+
+//     messageOne.textContent = 'Loading...'
+//     messageTwo.textContent = ''
+
+//     fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+//         console.log(response) //.then((response) => { // When the response is received, this function is executed
+//         response.json().then((data) => { // Convert the response to JSON and execute this function with the JSON data
+//           //code to handle the data will go here
+//             if(data.error) {
+//                 messageOne.textContent = data.error
+//             }
+//             else{
+//                 messageOne.textContent = data.location
+//                 messageTwo.textContent = data.forecast
+//             }
+//         })
+//     })
+// })
+
+// video 63
+//console.log(hi)
+
+//video 67 for render app change
+
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
@@ -134,7 +170,7 @@ messageOne.textContent = 'From JavaScript'
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
         console.log(response) //.then((response) => { // When the response is received, this function is executed
         response.json().then((data) => { // Convert the response to JSON and execute this function with the JSON data
           //code to handle the data will go here
@@ -148,6 +184,3 @@ messageOne.textContent = 'From JavaScript'
         })
     })
 })
-
-// video 63
-console.log(hi)
