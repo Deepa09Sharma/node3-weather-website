@@ -16,25 +16,25 @@
 // }
 // module.exports = forecast
 
-//challenge 40.app.js
+// //challenge 40.app.js
 
-const request = require('request');
+// const request = require('request');
 
-const forecast = (latitude, longitude, callback) => {
-    const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=3c6339d852c414e847cb4959867e0970&units=metric';
+// const forecast = (latitude, longitude, callback) => {
+//     const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=3c6339d852c414e847cb4959867e0970&units=metric';
 
-    request({ url, json: true }, (error, { body } = {}) => { // Destructured body with a default value
-        if (error) {
-            callback('Unable to connect to weather service!', undefined);
-        } else if (body.cod !== 200) { // Checked for API response error using body.cod // //else statement was not working when i used here body.error but when i used body.cod !== 200 then it worked
-            callback('Unable to find location.', undefined);
-        } else {
-            callback(undefined, 'It is currently ' + body.main.temp + ' degrees out. It feels like ' + body.main.feels_like + ' degrees out.');
-        }
-    });
-}
+//     request({ url, json: true }, (error, { body } = {}) => { // Destructured body with a default value
+//         if (error) {
+//             callback('Unable to connect to weather service!', undefined);
+//         } else if (body.cod !== 200) { // Checked for API response error using body.cod // //else statement was not working when i used here body.error but when i used body.cod !== 200 then it worked
+//             callback('Unable to find location.', undefined);
+//         } else {
+//             callback(undefined, 'It is currently ' + body.main.temp + ' degrees out. It feels like ' + body.main.feels_like + ' degrees out.');
+//         }
+//     });
+// }
 
-module.exports = forecast;
+// module.exports = forecast;
 
 
 //What Changed:
@@ -61,3 +61,30 @@ module.exports = forecast;
 // Readability: The code becomes cleaner and more readable, making it easier to understand and maintain.
 // Conciseness: Less code is needed to achieve the same functionality, reducing the potential for errors and making it easier to spot issues.
 // Efficiency: By directly accessing and using the necessary properties, the code runs more efficiently without unnecessary intermediate steps.
+
+
+//challenge video 68 from course
+// goal: add new data to forcast
+// 1. update the forecast string to include new data
+// 2. commit your changes
+// 3. push your changes to github and deploy to Render
+// 4. test your work in the live application
+
+const request = require('request');
+
+const forecast = (latitude, longitude, callback) => {
+    const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=3c6339d852c414e847cb4959867e0970&units=metric';
+
+    request({ url, json: true }, (error, { body } = {}) => { // Destructured body with a default value
+        if (error) {
+            callback('Unable to connect to weather service!', undefined);
+        } else if (body.cod !== 200) { // Checked for API response error using body.cod // //else statement was not working when i used here body.error but when i used body.cod !== 200 then it worked
+            callback('Unable to find location.', undefined);
+        } else {
+           // console.log(body.main) // to see data in terminal
+            callback(undefined, 'It is currently ' + body.main.temp + ' degrees out. It feels like ' + body.main.feels_like + ' degrees out. It is currently ' + body.main.humidity + ' humidity out.' );
+        }
+    });
+}
+
+module.exports = forecast;
