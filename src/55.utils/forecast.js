@@ -82,7 +82,7 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location.', undefined);
         } else {
            // console.log(body.main) // to see data in terminal
-            callback(undefined, 'It is currently ' + body.main.temp + ' degrees out. It feels like ' + body.main.feels_like + ' degrees out. It is currently ' + body.main.humidity + ' humidity out.' );
+            callback(undefined, 'It is currently ' + body.main.temp + ' degrees out. It feels like ' + body.main.feels_like + ' degrees out. It is currently ' + body.main.humidity + ' humidity out.' ) // humidity added for challenge
         }
     });
 }
